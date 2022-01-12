@@ -1,0 +1,5 @@
+C:\Users\Ben\Desktop\HDip\Programming 1\BenLawlorSamMacenoEmmetBoyleHDIPCA\BarApp.exe
+C:\Users\Ben\Desktop\HDip\Programming 1\BenLawlorSamMacenoEmmetBoyleHDIPCA\BarApp.dll
+C:\Users\Ben\Desktop\HDip\Programming 1\BenLawlorSamMacenoEmmetBoyleHDIPCA\BarApp.deps.json
+C:\Users\Ben\Desktop\HDip\Programming 1\BenLawlorSamMacenoEmmetBoyleHDIPCA\BarApp.runtimeconfig.json
+C:\Users\Ben\Desktop\HDip\Programming 1\BenLawlorSamMacenoEmmetBoyleHDIPCA\BarApp.pdb

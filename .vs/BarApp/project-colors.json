@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "00243f35-f5f6-48cd-bcab-49a645bb388f": {
+      "ProjectGuid": "00243f35-f5f6-48cd-bcab-49a645bb388f",
+      "DisplayName": "BarApp",
+      "ColorIndex": 0
+    }
+  },
+  "NextColorIndex": 1
+}
