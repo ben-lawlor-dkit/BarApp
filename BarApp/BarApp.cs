@@ -61,7 +61,6 @@ namespace BarApp
             //we have radio buttons that are only visible when they are relevant to the selected drink
             winePanel.Visible = false;
             pintPanel.Visible = false;
-            tipTextBox.Visible = false;
             tipMethodPanel.Visible = false;
             drinkComboBox.Visible = false;
 
@@ -264,31 +263,31 @@ namespace BarApp
                 totalTextBox.Text = priceOfRound.ToString("0.00");
             }
 
-            bool isDouble = double.TryParse(tipTextBox.Text, out tipInput);
+            //bool isDouble = double.TryParse(tipTextBox.Text, out tipInput);
 
-            //if the tip value or perecentage is decided
-            //after an initial drink order is placed
-            //then the order keeps the original tip value in mind
+            ////if the tip value or perecentage is decided
+            ////after an initial drink order is placed
+            ////then the order keeps the original tip value in mind
 
-            if (isDouble == true)
-            {
-                if (tipPercentRadioButton.Checked)
-                {
-                    tipTotal = (priceOfRound / 100) * tipInput;
-                }
-                else if (tipEuroRadioButton.Checked)
-                {
-                    tipTotal = tipInput;
-                }
-                total = priceOfRound + tipTotal;
-                totalTextBox.Text = total.ToString("0.00");
-            }
-            else if (tipTextBox.Text == "")
-            {
-                tipTotal = 0;
-                total = priceOfRound;
-                totalTextBox.Text = total.ToString("0.00");
-            }
+            //if (isDouble == true)
+            //{
+            //    if (tipPercentRadioButton.Checked)
+            //    {
+            //        tipTotal = (priceOfRound / 100) * tipInput;
+            //    }
+            //    else if (tipEuroRadioButton.Checked)
+            //    {
+            //        tipTotal = tipInput;
+            //    }
+            //    total = priceOfRound + tipTotal;
+            //    totalTextBox.Text = total.ToString("0.00");
+            //}
+            //else if (tipTextBox.Text == "")
+            //{
+            //    tipTotal = 0;
+            //    total = priceOfRound;
+            //    totalTextBox.Text = total.ToString("0.00");
+            //}
 
             if (drinkTypeAlreadyOnBill)
             {
@@ -353,45 +352,45 @@ namespace BarApp
             //making the tipping options visible
             if (tipCheckBox.Checked)
             {
-                tipTextBox.Visible = true;
                 tipMethodPanel.Visible = true;
+                tipNumericUpDown.Visible = true;   
             }
 
             //making them invisible and removing the tip data
             else
             {
-                tipTextBox.Visible = false;
                 tipMethodPanel.Visible = false;
                 tipTotal = 0;
                 total = priceOfRound;
                 totalTextBox.Text = total.ToString("0.00");
-                tipTextBox.Text = "";
+                tipNumericUpDown.Visible = false;
+
             }
         }
 
         private void tipTextBox_TextChanged(object sender, EventArgs e)
         {
-            //dynamically reading and displaying the tip as the user types
-            bool isDouble = double.TryParse(tipTextBox.Text, out tipInput);
-            if (isDouble == true)
-            {
-                if (tipPercentRadioButton.Checked)
-                {
-                    tipTotal = (priceOfRound / 100) * tipInput;                    
-                }
-                else if (tipEuroRadioButton.Checked)
-                {
-                    tipTotal = tipInput;
-                }
-                total = priceOfRound + tipTotal;
-                totalTextBox.Text = total.ToString("0.00");
-            }
-            else if (tipTextBox.Text == "")
-            {
-                tipTotal = 0;
-                total = priceOfRound;
-                totalTextBox.Text = total.ToString("0.00");
-            }
+            ////dynamically reading and displaying the tip as the user types
+            //bool isDouble = double.TryParse(tipTextBox.Text, out tipInput);
+            //if (isDouble == true)
+            //{
+            //    if (tipPercentRadioButton.Checked)
+            //    {
+            //        tipTotal = (priceOfRound / 100) * tipInput;                    
+            //    }
+            //    else if (tipEuroRadioButton.Checked)
+            //    {
+            //        tipTotal = tipInput;
+            //    }
+            //    total = priceOfRound + tipTotal;
+            //    totalTextBox.Text = total.ToString("0.00");
+            //}
+            //else if (tipTextBox.Text == "")
+            //{
+            //    tipTotal = 0;
+            //    total = priceOfRound;
+            //    totalTextBox.Text = total.ToString("0.00");
+            //}
         }
 
         private void tipPercentRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -413,7 +412,7 @@ namespace BarApp
             //if the radio button option is changed to euro, the tip updates
             try
             {
-                tipTotal = Convert.ToDouble(tipTextBox.Text);
+                tipTotal = Convert.ToDouble(tipNumericUpDown.Value);
                 total = priceOfRound + tipTotal;
                 totalTextBox.Text = total.ToString("0.00");
             }
@@ -509,6 +508,7 @@ namespace BarApp
                 drinkTypeComboBox.Text = "";
                 drinkComboBox.Text = "";
                 drinkComboBox.Items.Clear();
+                tipNumericUpDown.Value = 0;
                 lagerRadioButton.Checked = false;
                 stoutRadioButton.Checked = false;
                 whiteWineRadioButton.Checked = false;
@@ -517,7 +517,6 @@ namespace BarApp
                 winePanel.Visible = false;
                 pintPanel.Visible = false;
                 cardNotCash = false;
-                tipTextBox.Clear();
                 orderListBox.Items.Clear();
                 subtotalTextBox.Clear();
                 totalTextBox.Clear();
@@ -525,7 +524,6 @@ namespace BarApp
                 priceOfRound = 0;
                 tipInput = 0;
                 tipTotal = 0;
-                tipTextBox.Visible = false;
                 tipCheckBox.Checked = false;
                 total = 0;
                 roundPaid = false;
@@ -546,7 +544,7 @@ namespace BarApp
             winePanel.Visible = false;
             pintPanel.Visible = false;
             cardNotCash = false;
-            tipTextBox.Clear();
+            tipNumericUpDown.Value = 0;
             orderListBox.Items.Clear();
             subtotalTextBox.Clear();
             totalTextBox.Clear();
@@ -554,7 +552,7 @@ namespace BarApp
             priceOfRound = 0;
             tipInput = 0;
             tipTotal = 0;
-            tipTextBox.Visible = false;
+            tipNumericUpDown.Visible = false;
             tipCheckBox.Checked = false;
             total = 0;
             roundPaid = false;
@@ -575,8 +573,24 @@ namespace BarApp
             private void exitButton_Click(object sender, EventArgs e)
         {
             //close the app
-            MessageBox.Show("Thanks for stopping by! Take Care");
+            MessageBox.Show("Thanks for stopping by! Take Care.");
             Application.Exit();
+        }
+
+        private void tipNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            tipInput = Convert.ToDouble(tipNumericUpDown.Value);
+            //dynamically reading and displaying the tip as the user types
+                if (tipPercentRadioButton.Checked)
+                {
+                    tipTotal = (priceOfRound / 100) * tipInput;
+                }
+                else if (tipEuroRadioButton.Checked)
+                {
+                    tipTotal = tipInput;
+                }
+                total = priceOfRound + tipTotal;
+                totalTextBox.Text = total.ToString("0.00");            
         }
     }
 }

@@ -49,3 +49,4 @@ C:\Users\Ben\Desktop\BenLawlorSamMacenoEmmetBoyleHDIPCA\BarApp\BarApp\obj\Releas
 C:\Users\Ben\Desktop\BenLawlorSamMacenoEmmetBoyleHDIPCA\BarApp\BarApp\obj\Release\netcoreapp3.1\BarApp.dll
 C:\Users\Ben\Desktop\BenLawlorSamMacenoEmmetBoyleHDIPCA\BarApp\BarApp\obj\Release\netcoreapp3.1\BarApp.pdb
 C:\Users\Ben\Desktop\BenLawlorSamMacenoEmmetBoyleHDIPCA\BarApp\BarApp\obj\Release\netcoreapp3.1\BarApp.genruntimeconfig.cache
+C:\Users\Ben\Desktop\BenLawlorSamMacenoEmmetBoyleHDIPCA\BarApp\BarApp\obj\Release\netcoreapp3.1\BarApp.csproj.AssemblyReference.cache

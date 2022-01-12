@@ -51,7 +51,6 @@
             this.ourNamesLabel = new System.Windows.Forms.Label();
             this.beginOrderLabel = new System.Windows.Forms.Label();
             this.tipCheckBox = new System.Windows.Forms.CheckBox();
-            this.tipTextBox = new System.Windows.Forms.TextBox();
             this.tipMethodPanel = new System.Windows.Forms.Panel();
             this.tipEuroRadioButton = new System.Windows.Forms.RadioButton();
             this.tipPercentRadioButton = new System.Windows.Forms.RadioButton();
@@ -64,11 +63,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cancelOrderButton = new System.Windows.Forms.Button();
             this.quantityNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.tipNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.tipMethodPanel.SuspendLayout();
             this.paymentMethodPanel.SuspendLayout();
             this.winePanel.SuspendLayout();
             this.pintPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // drinkTypeComboBox
@@ -155,7 +156,7 @@
             this.completeOrderButton.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.completeOrderButton.Location = new System.Drawing.Point(769, 501);
             this.completeOrderButton.Name = "completeOrderButton";
-            this.completeOrderButton.Size = new System.Drawing.Size(193, 34);
+            this.completeOrderButton.Size = new System.Drawing.Size(200, 34);
             this.completeOrderButton.TabIndex = 8;
             this.completeOrderButton.Text = "Complete Order";
             this.completeOrderButton.UseVisualStyleBackColor = false;
@@ -314,19 +315,11 @@
             this.tipCheckBox.UseVisualStyleBackColor = false;
             this.tipCheckBox.CheckedChanged += new System.EventHandler(this.tipCheckBox_CheckedChanged);
             // 
-            // tipTextBox
-            // 
-            this.tipTextBox.Location = new System.Drawing.Point(769, 385);
-            this.tipTextBox.Name = "tipTextBox";
-            this.tipTextBox.Size = new System.Drawing.Size(61, 31);
-            this.tipTextBox.TabIndex = 24;
-            this.tipTextBox.TextChanged += new System.EventHandler(this.tipTextBox_TextChanged);
-            // 
             // tipMethodPanel
             // 
             this.tipMethodPanel.Controls.Add(this.tipEuroRadioButton);
             this.tipMethodPanel.Controls.Add(this.tipPercentRadioButton);
-            this.tipMethodPanel.Location = new System.Drawing.Point(853, 385);
+            this.tipMethodPanel.Location = new System.Drawing.Point(767, 383);
             this.tipMethodPanel.Name = "tipMethodPanel";
             this.tipMethodPanel.Size = new System.Drawing.Size(109, 31);
             this.tipMethodPanel.TabIndex = 25;
@@ -361,9 +354,11 @@
             this.totalLabel.BackColor = System.Drawing.SystemColors.Info;
             this.totalLabel.Location = new System.Drawing.Point(769, 426);
             this.totalLabel.Name = "totalLabel";
-            this.totalLabel.Size = new System.Drawing.Size(68, 25);
+            this.totalLabel.Padding = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.totalLabel.Size = new System.Drawing.Size(78, 25);
             this.totalLabel.TabIndex = 26;
             this.totalLabel.Text = "Total: €";
+            this.totalLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // paymentMethodPanel
             // 
@@ -371,7 +366,7 @@
             this.paymentMethodPanel.Controls.Add(this.cardRadioButton);
             this.paymentMethodPanel.Location = new System.Drawing.Point(769, 461);
             this.paymentMethodPanel.Name = "paymentMethodPanel";
-            this.paymentMethodPanel.Size = new System.Drawing.Size(193, 30);
+            this.paymentMethodPanel.Size = new System.Drawing.Size(200, 30);
             this.paymentMethodPanel.TabIndex = 27;
             // 
             // totalTextBox
@@ -379,7 +374,7 @@
             this.totalTextBox.Location = new System.Drawing.Point(873, 423);
             this.totalTextBox.Name = "totalTextBox";
             this.totalTextBox.ReadOnly = true;
-            this.totalTextBox.Size = new System.Drawing.Size(89, 31);
+            this.totalTextBox.Size = new System.Drawing.Size(96, 31);
             this.totalTextBox.TabIndex = 13;
             // 
             // winePanel
@@ -451,6 +446,16 @@
             0,
             0});
             // 
+            // tipNumericUpDown
+            // 
+            this.tipNumericUpDown.DecimalPlaces = 2;
+            this.tipNumericUpDown.Location = new System.Drawing.Point(889, 385);
+            this.tipNumericUpDown.Name = "tipNumericUpDown";
+            this.tipNumericUpDown.Size = new System.Drawing.Size(80, 31);
+            this.tipNumericUpDown.TabIndex = 33;
+            this.tipNumericUpDown.Visible = false;
+            this.tipNumericUpDown.ValueChanged += new System.EventHandler(this.tipNumericUpDown_ValueChanged);
+            // 
             // BarApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
@@ -460,6 +465,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1132, 715);
+            this.Controls.Add(this.tipNumericUpDown);
             this.Controls.Add(this.quantityNumericUpDown);
             this.Controls.Add(this.cancelOrderButton);
             this.Controls.Add(this.label1);
@@ -470,7 +476,6 @@
             this.Controls.Add(this.paymentMethodPanel);
             this.Controls.Add(this.totalLabel);
             this.Controls.Add(this.tipMethodPanel);
-            this.Controls.Add(this.tipTextBox);
             this.Controls.Add(this.tipCheckBox);
             this.Controls.Add(this.beginOrderLabel);
             this.Controls.Add(this.ourNamesLabel);
@@ -500,6 +505,7 @@
             this.pintPanel.ResumeLayout(false);
             this.pintPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.quantityNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tipNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -529,7 +535,6 @@
         private System.Windows.Forms.Label ourNamesLabel;
         private System.Windows.Forms.Label beginOrderLabel;
         private System.Windows.Forms.CheckBox tipCheckBox;
-        private System.Windows.Forms.TextBox tipTextBox;
         private System.Windows.Forms.Panel tipMethodPanel;
         private System.Windows.Forms.RadioButton tipEuroRadioButton;
         private System.Windows.Forms.RadioButton tipPercentRadioButton;
@@ -542,6 +547,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button cancelOrderButton;
         private System.Windows.Forms.NumericUpDown quantityNumericUpDown;
+        private System.Windows.Forms.NumericUpDown tipNumericUpDown;
     }
 }
 
